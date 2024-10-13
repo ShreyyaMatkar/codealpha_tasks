@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transform: perspective(1000px);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: perspective(1000px) rotateY(3deg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: translateY(100%);
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox:target {
+            display: flex;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .close-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <h1>Japan Image Gallery</h1>
+    <div class="gallery">
+        <a href="#img1" class="gallery-item">
+            <img src="Arashiyama Bamboo Forest.jpg" alt="Arashiyama Bamboo Forest" loading="lazy">
+            <div class="overlay">Arashiyama Bamboo Forest</div>
+        </a>
+        <a href="#img2" class="gallery-item">
+            <img src="Chureito Pagoda.jpg" alt="Chureito Pagoda" loading="lazy">
+            <div class="overlay">Chureito Pagoda</div>
+        </a>
+        <a href="#img3" class="gallery-item">
+            <img src="Matsumoto Castle.jpg" alt="Matsumoto Castle" loading="lazy">
+            <div class="overlay">Matsumoto Castle</div>
+        </a>
+        <a href="#img4" class="gallery-item">
+            <img src="Mount Fuji.jpg" alt="Mount Fuji" loading="lazy">
+            <div class="overlay">Mount Fuji</div>
+        </a>
+        <a href="#img5" class="gallery-item">
+            <img src="Onomichi.jpg" alt="Onomichi" loading="lazy">
+            <div class="overlay">Onomichi</div>
+        </a>
+        <a href="#img6" class="gallery-item">
+            <img src="Tokyo Tower.jpg" alt="Tokyo Tower" loading="lazy">
+            <div class="overlay">Tokyo Tower</div>
+        </a>
+        <a href="#img7" class="gallery-item">
+            <img src="Gujo Hachiman Castle.jpg" alt="Gujo Hachiman Castle" loading="lazy">
+            <div class="overlay">Gujo Hachiman Castle</div>
+        </a>
+        <a href="#img8" class="gallery-item">
+            <img src="Narai Juku.jpg" alt="Narai Juku" loading="lazy">
+            <div class="overlay">Narai Juku</div>
+        </a>
+    </div>
+
+    <!-- Lightbox Sections -->
+    <div id="img1" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="Arashiyama Bamboo Forest.jpg" alt="Arashiyama Bamboo Forest">
+    </div>
+    <div id="img2" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="Chureito Pagoda.jpg" alt="Chureito Pagoda">
+    </div>
+    <div id="img3" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="Matsumoto Castle.jpg" alt="Matsumoto Castle">
+    </div>
+    <div id="img4" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="Mount Fuji.jpg" alt="Mount Fuji">
+    </div>
+    <div id="img5" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="Onomichi.jpg" alt="Onomichi">
+    </div>
+    <div id="img6" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="Tokyo Tower.jpg" alt="Tokyo Tower">
+    </div>
+    <div id="img7" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="Gujo Hachiman Castle.jpg" alt="Gujo Hachiman Castle">
+    </div>
+    <div id="img8" class="lightbox">
+        <a href="#" class="close-btn">&times;</a>
+        <img src="Narai Juku.jpg" alt="Narai Juku">
+    </div>
+</body>
+</html>
